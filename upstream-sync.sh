@@ -60,7 +60,23 @@ if [ -z "${INPUT_UPSTREAM_REPOSITORY}" ]; then
     echo '      example: "upstream_repository: aormsby/fork-sync-with-upstream-action"' 1>&2
     exit 1
 else
-    UPSTREAM_REPO="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${INPUT_UPSTREAM_REPOSITORY}.git"
+    if [ -z "${INPUT_UPSTREAM_RPOVIDER}" ]; then
+        echo 'Workflow missing input value for "upstream_provider"' 1>&2
+        echo '      example: "upstream_provider: github"' 1>&2
+        exit 1
+    else
+        case ${INPUT_UPSTREAM_RPOVIDER} in
+            yoctoproject)
+                UPSTREAM_REPO="https://git@gyoctoproject.org/git/${INPUT_UPSTREAM_REPOSITORY}.git"
+                ;;
+            openembedded)
+                UPSTREAM_REPO="https://git@openembedded.org/${INPUT_UPSTREAM_REPOSITORY}.git"
+                ;;
+            github)
+                UPSTREAM_REPO="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${INPUT_UPSTREAM_REPOSITORY}.git"
+                ;;
+        esac
+    fi
 fi
 
 # set user credentials in git config

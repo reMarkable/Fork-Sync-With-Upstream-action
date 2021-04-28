@@ -15,6 +15,10 @@ inputs:
     description: 'Upstream repository, e.g. => aormsby/Fork-Sync-With-Upstream-action'
     required: true
 
+  upstream_provider:
+    description: 'Upstream git provider, e.g. => github'
+    required: true
+
   upstream_branch:
     description: 'Branch to sync from, e.g. => main, master, dev'
     required: true
