@@ -67,7 +67,7 @@ else
     else
         case ${INPUT_UPSTREAM_PROVIDER} in
             yoctoproject)
-                UPSTREAM_REPO="https://git@gyoctoproject.org/git/${INPUT_UPSTREAM_REPOSITORY}.git"
+                UPSTREAM_REPO="https://git@yoctoproject.org/git/${INPUT_UPSTREAM_REPOSITORY}.git"
                 ;;
             openembedded)
                 UPSTREAM_REPO="https://git@openembedded.org/${INPUT_UPSTREAM_REPOSITORY}.git"
