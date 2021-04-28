@@ -60,12 +60,12 @@ if [ -z "${INPUT_UPSTREAM_REPOSITORY}" ]; then
     echo '      example: "upstream_repository: aormsby/fork-sync-with-upstream-action"' 1>&2
     exit 1
 else
-    if [ -z "${INPUT_UPSTREAM_RPOVIDER}" ]; then
+    if [ -z "${INPUT_UPSTREAM_PROVIDER}" ]; then
         echo 'Workflow missing input value for "upstream_provider"' 1>&2
         echo '      example: "upstream_provider: github"' 1>&2
         exit 1
     else
-        case ${INPUT_UPSTREAM_RPOVIDER} in
+        case ${INPUT_UPSTREAM_PROVIDER} in
             yoctoproject)
                 UPSTREAM_REPO="https://git@gyoctoproject.org/git/${INPUT_UPSTREAM_REPOSITORY}.git"
                 ;;
